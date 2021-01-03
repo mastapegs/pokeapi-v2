@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
     '@typescript-eslint/explicit-function-return-type': 'error',
+    'import/no-unresolved': 'off',
     'prettier/prettier': 'error',
   },
 };

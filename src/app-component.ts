@@ -6,6 +6,7 @@ import {
   property,
 } from 'lit-element';
 import { until } from 'lit-html/directives/until';
+import './single-pokemon.ts';
 
 interface PokemonResponse {
   count: number | null;
@@ -19,7 +20,7 @@ interface PokemonResponse {
 
 @customElement('app-component')
 export default class AppComponent extends LitElement {
-  @property() message = 'Hello, World!';
+  @property() message = 'Pokemon!';
 
   @property({ attribute: false })
   pokemonResponse: Promise<PokemonResponse> = AppComponent.getData();
@@ -35,7 +36,8 @@ export default class AppComponent extends LitElement {
       ${until(
         this.pokemonResponse.then(data =>
           data.results.map(
-            ({ name, url }) => html` <p><a href=${url}>${name}</a></p> `
+            pokemon =>
+              html`<single-pokemon .pokemon=${pokemon}></single-pokemon>`
           )
         ),
         html`<p>Loading...</p>`
