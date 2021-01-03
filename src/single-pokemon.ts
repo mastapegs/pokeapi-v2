@@ -7,6 +7,13 @@ import {
 } from 'lit-element';
 import { until } from 'lit-html/directives/until';
 
+interface SinglePokemonResponse {
+  sprites: {
+    front_default: string;
+    back_default: string;
+  };
+}
+
 @customElement('single-pokemon')
 export default class SinglePokemon extends LitElement {
   @property({ type: Object }) pokemon = { name: '', url: '' };
@@ -14,9 +21,7 @@ export default class SinglePokemon extends LitElement {
   @property({ attribute: false })
   singlePokeResponse = this.getSinglePokemonData();
 
-  private async getSinglePokemonData(): Promise<{
-    sprites: { front_default: string; back_default: string };
-  }> {
+  private async getSinglePokemonData(): Promise<SinglePokemonResponse> {
     await new Promise(r => setTimeout(r, 0));
     const response = await fetch(this.pokemon.url);
     const data = await response.json();
