@@ -33,8 +33,10 @@ export default class AppComponent extends LitElement {
   render(): TemplateResult {
     return html` <h1>${this.message}</h1>
       ${until(
-        this.pokemonResponse.then(
-          data => html`<pre>${JSON.stringify(data, null, 2)}</pre>`
+        this.pokemonResponse.then(data =>
+          data.results.map(
+            ({ name, url }) => html` <p><a href=${url}>${name}</a></p> `
+          )
         ),
         html`<p>Loading...</p>`
       )}`;
