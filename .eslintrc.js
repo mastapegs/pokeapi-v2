@@ -14,6 +14,7 @@ module.exports = {
     'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
     '@typescript-eslint/explicit-function-return-type': 'error',
     'import/no-unresolved': 'off',
+    camelcase: 'off',
     'prettier/prettier': 'error',
   },
 };

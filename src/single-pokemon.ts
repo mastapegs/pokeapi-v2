@@ -15,7 +15,6 @@ export default class SinglePokemon extends LitElement {
   singlePokeResponse = this.getSinglePokemonData();
 
   private async getSinglePokemonData(): Promise<{
-    // eslint-disable-next-line camelcase
     sprites: { front_default: string; back_default: string };
   }> {
     await new Promise(r => setTimeout(r, 0));
