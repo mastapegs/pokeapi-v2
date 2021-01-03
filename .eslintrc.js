@@ -12,6 +12,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
+    '@typescript-eslint/explicit-function-return-type': 'error',
     'prettier/prettier': 'error',
   },
 };
