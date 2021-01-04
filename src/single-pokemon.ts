@@ -10,6 +10,7 @@ import { until } from 'lit-html/directives/until';
 interface SinglePokemonResponse {
   name: string;
   moves: { move: { name: string; url: string } }[];
+  types: { type: { name: string; url: string } }[];
   sprites: {
     front_default: string;
     back_default: string;
@@ -53,6 +54,15 @@ export default class SinglePokemon extends LitElement {
                     <ul>
                       ${data.moves.map(
                         ({ move: { name, url } }) =>
+                          html`<li><a href=${url}>${name}</a></li>`
+                      )}
+                    </ul>
+                  </details>
+                  <details>
+                    <summary>Types</summary>
+                    <ul>
+                      ${data.types.map(
+                        ({ type: { name, url } }) =>
                           html`<li><a href=${url}>${name}</a></li>`
                       )}
                     </ul>
