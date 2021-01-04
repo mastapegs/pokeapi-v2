@@ -8,6 +8,7 @@ import {
 import { until } from 'lit-html/directives/until';
 
 interface SinglePokemonResponse {
+  name: string;
   sprites: {
     front_default: string;
     back_default: string;
@@ -31,18 +32,20 @@ export default class SinglePokemon extends LitElement {
   render(): TemplateResult {
     return html`
       <div>
-        <p>Name: ${this.pokemon.name}</p>
         <p>Link: <a href=${this.pokemon.url}>${this.pokemon.url}</a></p>
         ${until(
           this.singlePokeResponse
             .then(
               data =>
-                html`<details>
-                    <summary>Data</summary>
+                html`
+                  <p>Name: ${data.name}</p>
+                  <details>
+                    <summary>Data From Pokemon URL</summary>
                     <pre>${JSON.stringify(data, null, 2)}</pre>
                   </details>
                   <img src=${data.sprites.front_default} />
-                  <img src=${data.sprites.back_default} /> `
+                  <img src=${data.sprites.back_default} />
+                `
             )
             .catch(error => html`<pre>${error}</pre>`),
           html`<p>Loading...</p>`
