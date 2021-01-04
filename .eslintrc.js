@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'prettier'],
+  plugins: ['@typescript-eslint', 'lit', 'prettier'], // prettier always last
   rules: {
     'class-methods-use-this': ['error', { exceptMethods: ['render'] }],
     '@typescript-eslint/explicit-function-return-type': 'error',
