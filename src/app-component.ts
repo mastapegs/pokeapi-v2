@@ -4,6 +4,8 @@ import {
   customElement,
   TemplateResult,
   property,
+  CSSResult,
+  css,
 } from 'lit-element';
 import { until } from 'lit-html/directives/until';
 import './single-pokemon.ts';
@@ -20,6 +22,25 @@ interface PokemonResponse {
 
 @customElement('app-component')
 export default class AppComponent extends LitElement {
+  static get styles(): CSSResult {
+    return css`
+      .grid-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      @media screen and (min-width: 480px) {
+        .grid-wrapper {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        .grid-wrapper {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+    `;
+  }
+
   @property() message = 'Pokemon!';
 
   @property({ attribute: false })
@@ -33,14 +54,16 @@ export default class AppComponent extends LitElement {
 
   render(): TemplateResult {
     return html` <h1>${this.message}</h1>
-      ${until(
-        this.pokemonResponse.then(data =>
-          data.results.map(
-            pokemon =>
-              html`<single-pokemon .pokemon=${pokemon}></single-pokemon>`
-          )
-        ),
-        html`<p>Loading...</p>`
-      )}`;
+      <div class="grid-wrapper">
+        ${until(
+          this.pokemonResponse.then(data =>
+            data.results.map(
+              pokemon =>
+                html`<single-pokemon .pokemon=${pokemon}></single-pokemon>`
+            )
+          ),
+          html`<p>Loading...</p>`
+        )}
+      </div>`;
   }
 }
