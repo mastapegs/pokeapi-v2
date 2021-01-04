@@ -11,6 +11,7 @@ interface SinglePokemonResponse {
   name: string;
   moves: { move: { name: string; url: string } }[];
   types: { type: { name: string; url: string } }[];
+  abilities: { ability: { name: string; url: string } }[];
   sprites: {
     front_default: string;
     back_default: string;
@@ -58,11 +59,20 @@ export default class SinglePokemon extends LitElement {
                       )}
                     </ul>
                   </details>
-                  <details>
+                  <details ?open=${true}>
                     <summary>Types</summary>
                     <ul>
                       ${data.types.map(
                         ({ type: { name, url } }) =>
+                          html`<li><a href=${url}>${name}</a></li>`
+                      )}
+                    </ul>
+                  </details>
+                  <details ?open=${true}>
+                    <summary>Abilities</summary>
+                    <ul>
+                      ${data.abilities.map(
+                        ({ ability: { name, url } }) =>
                           html`<li><a href=${url}>${name}</a></li>`
                       )}
                     </ul>
