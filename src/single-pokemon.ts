@@ -32,13 +32,15 @@ export default class SinglePokemon extends LitElement {
   render(): TemplateResult {
     return html`
       <div>
-        <p>Link: <a href=${this.pokemon.url}>${this.pokemon.url}</a></p>
         ${until(
           this.singlePokeResponse
             .then(
               data =>
                 html`
                   <p>Name: ${data.name}</p>
+                  <p>
+                    Link: <a href=${this.pokemon.url}>${this.pokemon.url}</a>
+                  </p>
                   <details>
                     <summary>Data From Pokemon URL</summary>
                     <pre>${JSON.stringify(data, null, 2)}</pre>
