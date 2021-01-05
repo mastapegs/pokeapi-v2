@@ -6,6 +6,7 @@ import {
   TemplateResult,
 } from 'lit-element';
 import { until } from 'lit-html/directives/until';
+import './custom-spinner.ts';
 
 interface SinglePokemonResponse {
   name: string;

@@ -54,6 +54,7 @@ export default class AppComponent extends LitElement {
 
   render(): TemplateResult {
     return html` <h1>${this.message}</h1>
+      <custom-spinner></custom-spinner>
       <div class="grid-wrapper">
         ${until(
           this.pokemonResponse.then(data =>
