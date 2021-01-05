@@ -35,7 +35,7 @@ export default class AppComponent extends LitElement {
         display: grid;
         grid-template-columns: 1fr;
       }
-      @media screen and (min-width: 480px) {
+      @media screen and (min-width: 640px) {
         .grid-wrapper {
           grid-template-columns: 1fr 1fr;
         }

@@ -4,6 +4,8 @@ import {
   customElement,
   property,
   TemplateResult,
+  CSSResult,
+  css,
 } from 'lit-element';
 import { until } from 'lit-html/directives/until';
 import './custom-spinner.ts';
@@ -21,6 +23,18 @@ interface SinglePokemonResponse {
 
 @customElement('single-pokemon')
 export default class SinglePokemon extends LitElement {
+  static get styles(): CSSResult {
+    return css`
+      :host {
+        padding: 1rem;
+        margin: 0.3rem;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 1px 3px 7px hsla(0, 0%, 50%, 0.5);
+      }
+    `;
+  }
+
   @property({ type: Object }) pokemon = { name: '', url: '' };
 
   @property({ attribute: false })
