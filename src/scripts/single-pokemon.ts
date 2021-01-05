@@ -27,7 +27,6 @@ export default class SinglePokemon extends LitElement {
     return css`
       :host {
         padding: 1rem;
-        margin: 0.3rem;
         background-color: white;
         border-radius: 20px;
         box-shadow: 1px 3px 7px hsla(0, 0%, 50%, 0.5);

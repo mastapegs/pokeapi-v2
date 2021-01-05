@@ -33,6 +33,7 @@ export default class AppComponent extends LitElement {
       }
       .grid-wrapper {
         display: grid;
+        gap: 0.5rem;
         grid-template-columns: 1fr;
       }
       @media screen and (min-width: 640px) {
@@ -40,7 +41,7 @@ export default class AppComponent extends LitElement {
           grid-template-columns: 1fr 1fr;
         }
       }
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1080px) {
         .grid-wrapper {
           grid-template-columns: 1fr 1fr 1fr;
         }
