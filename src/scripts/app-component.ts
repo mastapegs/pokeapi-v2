@@ -24,6 +24,13 @@ interface PokemonResponse {
 export default class AppComponent extends LitElement {
   static get styles(): CSSResult {
     return css`
+      .title {
+        text-align: center;
+      }
+      .flex {
+        display: flex;
+        justify-content: center;
+      }
       .grid-wrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -53,8 +60,8 @@ export default class AppComponent extends LitElement {
   }
 
   render(): TemplateResult {
-    return html` <h1>${this.message}</h1>
-      <custom-spinner></custom-spinner>
+    return html` <h1 class="title">${this.message}</h1>
+      <div class="flex"><custom-spinner></custom-spinner></div>
       <div class="grid-wrapper">
         ${until(
           this.pokemonResponse.then(data =>
