@@ -17,6 +17,9 @@ export default class CustomSpinner extends LitElement {
         width: 100px;
         height: 100px;
         margin: 2rem;
+        animation: spinner 4s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
       }
       .box {
         height: 100%;
@@ -34,6 +37,14 @@ export default class CustomSpinner extends LitElement {
       .blue {
         background-color: rgba(0, 0, 255, 0.7);
         transform: rotate(240deg);
+      }
+      @keyframes spinner {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
     `;
   }
