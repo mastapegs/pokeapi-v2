@@ -50,8 +50,8 @@ export default class CustomSpinner extends LitElement {
   }
 
   render(): TemplateResult {
-    return html`<div class="box red"></div>
-      <div class="box blue"></div>
-      <div class="box green"></div>`;
+    return html` ${['red', 'green', 'blue'].map(
+      color => html`<div class=${`box ${color}`}></div>`
+    )}`;
   }
 }
