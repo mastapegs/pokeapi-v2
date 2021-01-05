@@ -14,8 +14,8 @@ export default class CustomSpinner extends LitElement {
       :host {
         position: relative;
         display: inline-block;
-        width: 70px;
-        height: 70px;
+        width: 100px;
+        height: 100px;
         margin: 2rem;
         animation: spinner 4s;
         animation-iteration-count: infinite;
@@ -26,6 +26,7 @@ export default class CustomSpinner extends LitElement {
         width: 100%;
         position: absolute;
         opacity: 0.5;
+        border-radius: 10%;
       }
       .red {
         background-color: hsl(0, 100%, 50%);
@@ -47,8 +48,8 @@ export default class CustomSpinner extends LitElement {
         background-color: hsl(240, 100%, 50%);
         transform: rotate(60deg);
       }
-      .purple {
-        background-color: hsl(300, 100%, 50%);
+      .clear {
+        background-color: hsla(0, 0%, 0%, 1);
         transform: rotate(75deg);
       }
       @keyframes spinner {
@@ -63,7 +64,7 @@ export default class CustomSpinner extends LitElement {
   }
 
   render(): TemplateResult {
-    return html` ${['red', 'orange', 'yellow', 'green', 'blue', 'purple'].map(
+    return html` ${['red', 'orange', 'yellow', 'green', 'blue', 'clear'].map(
       color => html`<div class=${`box ${color}`}></div>`
     )}`;
   }
