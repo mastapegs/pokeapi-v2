@@ -25,17 +25,18 @@ export default class CustomSpinner extends LitElement {
         height: 100%;
         width: 100%;
         position: absolute;
+        opacity: 1;
       }
       .red {
-        background-color: rgba(255, 0, 0, 0.7);
+        background-color: rgb(255, 0, 0);
         transform: rotate(0deg);
       }
       .green {
-        background-color: rgba(0, 255, 0, 0.7);
+        background-color: rgb(0, 255, 0);
         transform: rotate(120deg);
       }
       .blue {
-        background-color: rgba(0, 0, 255, 0.7);
+        background-color: rgb(0, 0, 255);
         transform: rotate(240deg);
       }
       @keyframes spinner {
